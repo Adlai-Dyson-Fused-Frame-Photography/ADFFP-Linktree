@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | Adlai Dyson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="icon" href="https://cdn-eu.fusedframe.co.uk/main-logos/jpg/squarefavicon-nocircle.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Kit -->
+  <script src="https://kit.fontawesome.com/05718c5f0d.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Subtle Fade In Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+    
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    
+    /* Clean custom scrollbar for better look */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569; 
+    }
+  </style>
+</head>
+
+<body class="bg-[#0b1120] text-slate-100 min-h-screen font-sans selection:bg-[#94fdf8] selection:text-slate-900 overflow-x-hidden">
+
+  <!-- Ambient Background Glow (Optional, kept subtle) -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <div class="absolute top-[-15%] left-[-10%] w-[600px] h-[600px] bg-[#94fdf8] rounded-full mix-blend-screen filter blur-[150px] opacity-5"></div>
+  </div>
+
+  <main class="w-full max-w-7xl mx-auto px-6 lg:px-12 py-10 my-8">
+    
+    <!-- Header Section -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 animate-fade-in">
+      <div>
+        <div id="date-display" class="text-slate-400 text-sm font-semibold tracking-wider uppercase mb-2">
+          LOADING DATE...
+        </div>
+        <h1 id="greeting" class="text-5xl font-extrabold text-[#94fdf8] tracking-tight">
+          Welcome, Adlai
+        </h1>
+      </div>
+      
+      <div class="flex flex-wrap items-center gap-6 bg-slate-900/40 border border-slate-800/60 p-4 rounded-2xl backdrop-blur-sm">
+        <!-- Clock -->
+        <div class="text-right flex items-center gap-3 pr-6 border-r border-slate-700/50">
+           <i class="fa-regular fa-clock text-slate-400 text-xl hidden sm:block"></i>
+           <div>
+             <div id="clock" class="text-3xl font-bold text-white tracking-tight leading-none">--:--</div>
+             <div class="text-[10px] text-[#94fdf8] uppercase tracking-widest mt-1">London</div>
+           </div>
+        </div>
+        
+        <!-- Weather Widget -->
+        <div id="weather-widget" class="flex items-center gap-3 min-w-[120px]">
+           <!-- Skeleton Loader for Weather -->
+           <div class="animate-pulse flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-800"></div>
+              <div class="flex flex-col gap-1">
+                 <div class="w-8 h-4 bg-slate-800 rounded"></div>
+                 <div class="w-16 h-3 bg-slate-800 rounded"></div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Applications Section -->
+    <section class="animate-fade-in delay-100 mb-16">
+      <h2 class="text-xl font-bold text-[#94fdf8] uppercase tracking-wider mb-6">Applications</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
+        
+        <!-- App Item -->
+        <a href="https://sign.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">DocuSign</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">sign.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://guacamole.adlaidyson.co.uk/guacamole" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Guacamole</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">guacamole.adlaidyson.co.uk/guacamole</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://notes.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">HedgeDoc</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">notes.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://imph.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Immich Photos</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">imph.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://jf.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-regular fa-circle-play"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Jellyfin Media Server</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">jf.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://yt.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-download"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">MeTube YT Downloader</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">yt.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://n8n.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">n8n Workflow Dashboard</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">n8n.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://paperless.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Paperless NGX</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">paperless.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://clients.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-users-viewfinder"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Picr Client Galleries</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">clients.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="http://portainer.batlanrobin.local:9443" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-brands fa-docker"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Portainer</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">portainer.batlanrobin.local:9443</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://qr.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">QR Code Generator</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">qr.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://rc.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-regular fa-comments"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Rocket.Chat</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">rc.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://adffp.uk/dashboard" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Short Links</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">adffp.uk/dashboard</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://shuttersociety.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-brands fa-mastodon"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Shutter Society Mastodon</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">shuttersociety.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://snipe.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-barcode"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Snipe Assets</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">snipe.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://status.adffp.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Status Page</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">status.adffp.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://todo.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">To-Do and Projects (Vikunja)</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">todo.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://upperhaughweather.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Upper Haugh Weather App</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">upperhaughweather.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://vault.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Vaultwarden Password Manager</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">vault.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+        <!-- App Item -->
+        <a href="https://wiki.adlaidyson.co.uk" target="_blank" class="flex items-center gap-4 hover:bg-slate-800/50 p-2 -ml-2 rounded-lg transition-colors group">
+          <div class="text-slate-100 group-hover:text-[#94fdf8] transition-colors w-6 flex justify-center text-xl">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <div>
+            <div class="text-[13px] font-bold text-slate-100 uppercase tracking-wide group-hover:text-white">Wiki</div>
+            <div class="text-[11px] text-slate-400 uppercase tracking-wider truncate">wiki.adlaidyson.co.uk</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Bookmarks Section -->
+    <section class="animate-fade-in delay-200">
+      <h2 class="text-xl font-bold text-[#94fdf8] uppercase tracking-wider mb-6">Bookmarks</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+        
+        <!-- Category: FAMILY -->
+        <div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">Family</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-calendar-days text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Family Calendar</a></li>
+            <li><a href="#" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-tv text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Yodeck Dashboard</a></li>
+          </ul>
+        </div>
+
+        <!-- Category: FFP GENERAL -->
+        <div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">FFP General</h3>
+          <ul class="space-y-3">
+            <li><a href="https://adffp.uk/dashboard" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-link text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> All Links</a></li>
+            <li><a href="https://canva.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-pen-nib text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Canva</a></li>
+            <li><a href="https://chat.openai.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-robot text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> ChatGPT</a></li>
+            <li><a href="https://adffp.uk/github" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-github text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> GitHub Links</a></li>
+            <li><a href="https://jotform.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-pen-to-square text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Jotform</a></li>
+            <li><a href="https://www.fusedframe.co.uk" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-globe text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Website</a></li>
+          </ul>
+        </div>
+
+        <!-- Category: FFP SOCIAL MEDIA -->
+        <div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">FFP Social Media</h3>
+          <ul class="space-y-3">
+            <li><a href="https://adffp.uk/facebook" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-facebook text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Facebook</a></li>
+            <li><a href="https://adffp.uk/instagram" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-instagram text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Instagram</a></li>
+            <li><a href="https://business.facebook.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-chart-line text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Meta Business Suite</a></li>
+            <li><a href="https://reddit.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-reddit text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Reddit</a></li>
+            <li><a href="https://adffp.uk/threads" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-threads text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Threads</a></li>
+            <li><a href="https://adffp.uk/tiktok" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-tiktok text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> TikTok</a></li>
+            <li><a href="#" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-video text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> TikTok Studio</a></li>
+            <li><a href="https://adffp.uk/youtube" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-youtube text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> YouTube</a></li>
+            <li><a href="https://studio.youtube.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-circle-play text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> YouTube Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Category: FFP WEBSITE AND DOMAIN MANAGEMENT -->
+        <div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4 leading-tight">FFP Website and Domain Management</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-lock text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Authentik</a></li>
+            <li><a href="https://dash.cloudflare.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-cloudflare text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Cloudflare Dashboard</a></li>
+            <li><a href="#" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-cloud text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Cloudflare One Touch Dashboard</a></li>
+            <li><a href="https://github.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-github-alt text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> GitHub Repositories</a></li>
+            <li><a href="https://purelymail.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-envelope text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Purelymail</a></li>
+            <li><a href="https://short.io" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-link text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Short.io</a></li>
+            <li><a href="https://snapp.li" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-solid fa-link text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Snapp.li</a></li>
+            <li><a href="https://wix.com" target="_blank" class="flex items-center gap-3 text-slate-200 hover:text-[#94fdf8] text-sm transition-colors group"><i class="fa-brands fa-wix text-slate-400 group-hover:text-[#94fdf8] w-4 text-center"></i> Wix Dashboard</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Configuration
+    const TIMEZONE = 'Europe/London';
+    const WEATHER_API_URL = 'https://api.upperhaughweather.uk/weather';
+
+    // Update Date, Time and Greeting
+    function updateClockAndGreeting() {
+      const now = new Date();
+      
+      // 1. Update Date (e.g., SUNDAY, 22 FEBRUARY 2026)
+      const dateOptions = { timeZone: TIMEZONE, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      const dateString = new Intl.DateTimeFormat('en-GB', dateOptions).format(now).toUpperCase();
+      document.getElementById('date-display').innerText = dateString;
+
+      // 2. Update Time (e.g., 14:30)
+      const timeOptions = { timeZone: TIMEZONE, hour: '2-digit', minute: '2-digit', hour12: false };
+      const timeString = new Intl.DateTimeFormat('en-GB', timeOptions).format(now);
+      document.getElementById('clock').innerText = timeString;
+
+      // 3. Update Greeting based on London Hour
+      const hourOptions = { timeZone: TIMEZONE, hour: 'numeric', hour12: false };
+      const hour = parseInt(new Intl.DateTimeFormat('en-GB', hourOptions).format(now), 10);
+      
+      let greeting = 'Good Evening';
+      if (hour >= 5 && hour < 12) {
+        greeting = 'Good Morning';
+      } else if (hour >= 12 && hour < 18) {
+        greeting = 'Good Afternoon';
+      }
+      document.getElementById('greeting').innerText = `${greeting}, Adlai`;
+    }
+
+    // Fetch Weather from Custom API
+    async function fetchWeather() {
+      const weatherWidget = document.getElementById('weather-widget');
+      try {
+        const response = await fetch(WEATHER_API_URL);
+        if (!response.ok) throw new Error('Network response was not ok');
+        
+        const data = await response.json();
+        const current = data.weather.current;
+        
+        const temp = Math.round(current.temp);
+        const description = current.weather[0].description;
+        const iconCode = current.weather[0].icon;
+        
+        // OpenWeatherMap Icons URL based on the code returned by the API
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+        weatherWidget.innerHTML = `
+          <img src="${iconUrl}" alt="${description}" class="w-12 h-12 drop-shadow-md" title="${description}">
+          <div class="flex flex-col">
+            <div class="text-2xl font-bold text-white leading-none">${temp}°C</div>
+            <div class="text-[11px] text-slate-400 capitalize tracking-wide mt-1">${description}</div>
+          </div>
+        `;
+      } catch (error) {
+        console.error('Failed to fetch weather:', error);
+        weatherWidget.innerHTML = `
+          <div class="flex flex-col justify-center">
+            <span class="text-sm text-slate-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Weather info</span>
+            <span class="text-xs text-slate-500">Currently unavailable</span>
+          </div>
+        `;
+      }
+    }
+
+    // Initialize 
+    document.addEventListener('DOMContentLoaded', () => {
+      updateClockAndGreeting();
+      setInterval(updateClockAndGreeting, 10000); // Update time every 10 seconds to save cycles
+      fetchWeather();
+      setInterval(fetchWeather, 600000); // Refresh weather every 10 minutes
+    });
+  </script>
+</body>
+</html>
