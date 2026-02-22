@@ -7,18 +7,20 @@
   
   <link rel="icon" href="https://cdn-eu.fusedframe.co.uk/main-logos/jpg/squarefavicon-nocircle.jpg" />
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Font Awesome Kit (User Provided) -->
+  <script src="https://kit.fontawesome.com/05718c5f0d.js" crossorigin="anonymous"></script>
 
   <style>
     /* Custom Animation for fade-in */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in {
-      animation: fadeIn 0.5s ease-out forwards;
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
     }
     /* Stagger animations */
@@ -29,192 +31,214 @@
     .delay-500 { animation-delay: 500ms; }
     .delay-600 { animation-delay: 600ms; }
     .delay-700 { animation-delay: 700ms; }
+    .delay-800 { animation-delay: 800ms; }
+    .delay-900 { animation-delay: 900ms; }
   </style>
 </head>
 
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-[#94fdf8] selection:text-slate-900">
 
+  <!-- Top Banner -->
   <a
     href="http://adlaidyson.co.uk/MHFDonate"
-    class="w-full bg-slate-900 text-slate-300 text-sm py-2 text-center hover:bg-slate-800 transition border-b border-slate-800 z-50"
+    class="w-full bg-slate-900/80 backdrop-blur-md text-slate-300 text-sm py-2.5 text-center hover:bg-slate-800 hover:text-white transition-colors border-b border-slate-800/50 z-50 sticky top-0"
   >
-    Donate to Mental Health Foundation <span class="text-[#94fdf8]">→</span>
+    Donate to Mental Health Foundation <i class="fa-solid fa-arrow-right ml-1 text-[#94fdf8]"></i>
   </a>
 
+  <!-- Ambient Background Glow -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#94fdf8] rounded-full mix-blend-screen filter blur-[128px] opacity-5"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] opacity-5"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#94fdf8] rounded-full mix-blend-screen filter blur-[128px] opacity-10 animate-pulse" style="animation-duration: 4s;"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] opacity-10 animate-pulse" style="animation-duration: 5s;"></div>
   </div>
 
   <main class="w-full max-w-md mx-auto flex flex-col items-center space-y-8 animate-fade-in my-8 p-4">
     
+    <!-- Profile Section -->
     <div class="text-center space-y-4">
-      <div class="relative w-32 h-32 mx-auto group">
-        <div class="absolute inset-0 bg-[#94fdf8] rounded-full blur-md opacity-20 group-hover:opacity-40 transition duration-500"></div>
+      <div class="relative w-32 h-32 mx-auto group cursor-pointer">
+        <div class="absolute inset-0 bg-[#94fdf8] rounded-full blur-lg opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
         <img 
           src="https://cdn-eu.fusedframe.co.uk/main-logos/png/portrait-circle-popout.png" 
           alt="Adlai Dyson" 
-          class="relative w-full h-full object-cover rounded-full border-2 border-slate-800 group-hover:border-[#94fdf8] transition duration-300 shadow-xl bg-slate-900"
+          class="relative w-full h-full object-cover rounded-full border-2 border-slate-700 group-hover:border-[#94fdf8] transition-colors duration-300 shadow-xl bg-slate-900"
         />
       </div>
       
       <div>
-        <h1 class="text-3xl font-bold tracking-tight text-[#94fdf8]">Adlai Dyson</h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#94fdf8] to-blue-400">Adlai Dyson</h1>
+        <p class="text-slate-400 text-sm mt-1 font-medium tracking-wide uppercase"></p>
       </div>
     </div>
 
-    <div class="w-full space-y-3">
+    <!-- Links Container -->
+    <div class="w-full space-y-3.5">
 
+      <!-- Link: Official Website -->
       <a href="https://www.fusedframe.co.uk" class="animate-fade-in delay-100 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800">
-            <img src="https://cdn-eu.fusedframe.co.uk/main-logos/jpg/squarefavicon-nocircle.jpg" class="w-6 h-6 rounded-sm" alt="Icon">
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-[#94fdf8] flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-solid fa-globe text-lg"></i>
           </div>
           <div class="ml-4 flex-grow">
             <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Official Website</h3>
             <p class="text-xs text-slate-400">Portfolio & Galleries</p>
           </div>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-500 group-hover:text-[#94fdf8] transition-transform group-hover:translate-x-1"></i>
+          <div class="w-8 h-8 rounded-full bg-slate-800/50 flex items-center justify-center group-hover:bg-[#94fdf8]/20 transition-colors">
+            <i class="fa-solid fa-arrow-right text-sm text-slate-400 group-hover:text-[#94fdf8] transition-transform group-hover:-rotate-45"></i>
+          </div>
         </div>
       </a>
 
+      <!-- Link: Packages -->
       <a href="https://adffp.uk/book" class="animate-fade-in delay-200 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800">
-            <img src="https://cdn-eu.fusedframe.co.uk/main-logos/jpg/squarefavicon-nocircle.jpg" class="w-6 h-6 rounded-sm" alt="Icon">
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-blue-400 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-solid fa-calendar-check text-lg"></i>
           </div>
           <div class="ml-4 flex-grow">
             <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Packages</h3>
             <p class="text-xs text-slate-400">Book for event & custom photoshoots</p>
           </div>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-500 group-hover:text-[#94fdf8] transition-transform group-hover:translate-x-1"></i>
+          <div class="w-8 h-8 rounded-full bg-slate-800/50 flex items-center justify-center group-hover:bg-[#94fdf8]/20 transition-colors">
+            <i class="fa-solid fa-arrow-right text-sm text-slate-400 group-hover:text-[#94fdf8] transition-transform group-hover:-rotate-45"></i>
+          </div>
         </div>
       </a>
 
+      <!-- Link: EXIF Overlay -->
       <a href="https://adffp.uk/exif-o-g" class="animate-fade-in delay-300 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-[#94fdf8]">
-            <i data-lucide="image" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-purple-400 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-solid fa-image text-lg"></i>
           </div>
           <div class="ml-4 flex-grow">
             <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">EXIF Overlay</h3>
             <p class="text-xs text-slate-400">Clean Summaries for Every Photo!</p>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-[#94fdf8] transition-colors"></i>
         </div>
       </a>
 
+      <!-- Link: Instagram -->
       <a href="https://adffp.uk/instagram" class="animate-fade-in delay-400 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-pink-500">
-            <i data-lucide="instagram" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-pink-500 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-instagram text-xl"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Instagram</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-pink-400 transition-colors">Instagram</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-pink-400 transition-colors"></i>
         </div>
       </a>
 
-      <a href="https://adffp.uk/tiktok" class="animate-fade-in delay-400 block group relative">
+      <!-- Link: TikTok -->
+      <a href="https://adffp.uk/tiktok" class="animate-fade-in delay-500 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-white">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-white flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-tiktok text-xl hover:text-[#00f2fe]"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">TikTok</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-white transition-colors">TikTok</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-white transition-colors"></i>
         </div>
       </a>
 
-      <a href="https://adffp.uk/linkedin" class="animate-fade-in delay-500 block group relative">
+      <!-- Link: LinkedIn -->
+      <a href="https://adffp.uk/linkedin" class="animate-fade-in delay-600 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-blue-500">
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-blue-500 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-linkedin-in text-xl"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">LinkedIn</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-blue-400 transition-colors">LinkedIn</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-blue-400 transition-colors"></i>
         </div>
       </a>
 
-      <a href="https://adffp.uk/youtube" class="animate-fade-in delay-500 block group relative">
+      <!-- Link: YouTube -->
+      <a href="https://adffp.uk/youtube" class="animate-fade-in delay-700 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-red-500">
-            <i data-lucide="youtube" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-red-500 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-youtube text-lg"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">YouTube</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-red-400 transition-colors">YouTube</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-red-400 transition-colors"></i>
         </div>
       </a>
 
-      <a href="https://adffp.uk/threads" class="animate-fade-in delay-600 block group relative">
+      <!-- Link: Threads -->
+      <a href="https://adffp.uk/threads" class="animate-fade-in delay-800 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-white">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
-              <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.3586 44.7443 69.0913 51.7615 60.3168 62.9097C51.5423 74.0578 48.0674 88.3845 50.5323 103.266C52.9972 118.147 61.1856 132.321 73.5855 143.18C85.9854 154.04 101.523 160.655 117.272 161.797C138.832 163.361 158.831 154.787 170.768 138.257L182.086 146.431C167.338 166.855 142.668 177.587 116.262 175.671C97.1009 174.282 78.1963 166.233 63.1091 153.02C48.0219 139.807 38.0583 122.56 35.0591 104.453C32.0598 86.3458 36.2882 68.9135 46.965 55.3524C57.6418 41.7913 73.7831 33.2536 91.867 31.8687C93.6521 31.732 95.4419 31.6637 97.2317 31.6637C127.755 31.6637 146.368 51.171 148.168 85.0355C148.88 85.3402 149.58 85.6568 150.268 85.9868C160.707 91.006 165.684 100.864 162.771 110.875C161.428 115.494 158.406 119.263 154.197 121.464C149.988 123.666 144.897 124.135 140.062 122.759C130.43 120.016 125.797 109.804 126.861 93.8569ZM96.2621 133.435C113.195 133.056 124.225 120.379 123.834 100.835C115.681 98.7185 106.903 98.2514 98.0594 99.5161C89.5843 100.728 85.6987 106.326 86.4172 113.882C87.1358 121.439 91.3146 133.545 96.2621 133.435ZM139.141 110.375C139.544 110.49 139.907 110.463 140.198 110.311C140.489 110.158 140.697 109.897 140.79 109.577C140.895 109.215 140.816 108.927 140.671 108.761C140.526 108.595 140.235 108.435 139.636 108.261L139.141 110.375Z"/>
-            </svg>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-white flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-threads text-xl"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Threads</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-slate-300 transition-colors">Threads</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-white transition-colors"></i>
         </div>
       </a>
 
-      <a href="https://adffp.uk/facebook" class="animate-fade-in delay-600 block group relative">
+      <!-- Link: Facebook -->
+      <a href="https://adffp.uk/facebook" class="animate-fade-in delay-900 block group relative">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-blue-600">
-            <i data-lucide="facebook" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-blue-600 flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-brands fa-facebook-f text-xl"></i>
           </div>
           <div class="ml-4 flex-grow">
-            <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Facebook</h3>
+            <h3 class="font-semibold text-slate-100 group-hover:text-blue-500 transition-colors">Facebook</h3>
           </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-400"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-600 group-hover:text-blue-500 transition-colors"></i>
         </div>
       </a>
       
-      <a href="https://adffp.uk/services" class="animate-fade-in delay-700 block group relative">
+      <!-- Link: Services -->
+      <a href="https://adffp.uk/services" class="animate-fade-in delay-900 block group relative mt-6">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-[#94fdf8] to-blue-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-300"></div>
-        <div class="relative flex items-center p-3 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
-          <div class="bg-slate-950 p-2 rounded-lg text-[#94fdf8]">
-            <i data-lucide="wrench" class="w-5 h-5"></i>
+        <div class="relative flex items-center p-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition duration-200">
+          <div class="bg-slate-950/50 p-2 rounded-lg border border-slate-800 text-[#94fdf8] flex items-center justify-center w-10 h-10 shadow-inner">
+            <i class="fa-solid fa-toolbox text-lg"></i>
           </div>
           <div class="ml-4 flex-grow">
             <h3 class="font-semibold text-slate-100 group-hover:text-[#94fdf8] transition-colors">Services & Tools</h3>
             <p class="text-xs text-slate-400">All other services I have developed</p>
           </div>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-slate-500 group-hover:text-[#94fdf8] transition-transform group-hover:translate-x-1"></i>
+          <div class="w-8 h-8 rounded-full bg-slate-800/50 flex items-center justify-center group-hover:bg-[#94fdf8]/20 transition-colors">
+            <i class="fa-solid fa-arrow-right text-sm text-slate-400 group-hover:text-[#94fdf8] transition-transform group-hover:-rotate-45"></i>
+          </div>
         </div>
       </a>
 
     </div>
 
-    <footer class="mt-8 text-center text-slate-500 text-sm animate-fade-in delay-700 w-full">
-      <div class="flex justify-center items-center space-x-8 mb-6">
-         <a href="https://adffp.uk/github" class="hover:text-[#94fdf8] transition flex flex-col items-center gap-1 group">
-            <i data-lucide="github" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+    <!-- Footer Icons -->
+    <footer class="mt-10 text-center text-slate-500 text-sm animate-fade-in delay-900 w-full">
+      <div class="flex justify-center items-center space-x-6 mb-6">
+         <a href="https://adffp.uk/github" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white hover:border-slate-600 transition-all group">
+            <i class="fa-brands fa-github text-lg group-hover:scale-110 transition-transform"></i>
          </a>
          
-         <a href="https://adffp.uk/whatsapp" class="hover:text-[#25D366] transition flex flex-col items-center gap-1 group">
-            <svg class="w-6 h-6 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+         <a href="https://adffp.uk/whatsapp" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/50 transition-all group">
+            <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
          </a>
 
-         <a href="mailto:hello@fusedframe.co.uk" class="hover:text-[#94fdf8] transition flex flex-col items-center gap-1 group">
-            <i data-lucide="mail" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+         <a href="mailto:hello@fusedframe.co.uk" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#94fdf8]/10 hover:text-[#94fdf8] hover:border-[#94fdf8]/50 transition-all group">
+            <i class="fa-solid fa-envelope text-lg group-hover:scale-110 transition-transform"></i>
          </a>
       </div>
 
@@ -224,9 +248,5 @@
 
   </main>
 
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-  </script>
 </body>
 </html>
